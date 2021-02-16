@@ -1,0 +1,49 @@
+.content{
+    padding: 66px 50px 13px 146px;
+    background: #dbc5c9;
+}
+.chair_image{
+    width:100%;
+}
+.sales{
+    color: orangered;
+    font-weight: bold;
+    font-size: 28px;
+    padding-top: 17px;
+}
+.heading{
+    font-weight: bold;
+    font-size: 83px;
+    line-height: 71px;
+}
+.subheading{
+    font-weight:100;
+}
+.discount{
+    width: 73px;
+    height: 73px;
+    border-radius: 47px;
+    background-color: orangered;
+    color: white;
+    position: relative;
+    top: 15px;
+    left: 91px;
+}
+.discount_value{
+    color: white;
+    padding-top: 19px;
+    text-align: center;
+    font-size: 26px;
+}
+.sale_des{
+    color:black;
+    font-size:10px;
+}
+.btn-primary{
+    background-color: orangered;
+    border: none;
+    width: 38%;
+    height: 54px;
+    padding-top: 18px;
+    text-align: left;
+}
