@@ -1,0 +1,66 @@
+<div class="container mt-5">
+    <div class="places-section">
+        <div class="card">
+            <div *ngIf="submitted">
+                <div class="card-header">
+                    <a class="p-2">Places List</a>
+                </div>
+                <div class="card-body" >
+                    <ul *ngFor="let place of placeData">
+                        <li>Name:{{place.yourName}}</li>
+                        <li>City Name:{{place.CityName}}</li>
+                        <li>Pincode:{{place.pincode}}</li>
+                        <li>Ratings:{{place.rate}}</li>
+                        <!-- <li>{{placeData.yourName}}</li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="card-header">
+                <div class="btn btn-primary" (click)="showForm()">
+                    Add Place
+                </div>
+            </div>
+            <div class="card-body" *ngIf="show">
+                <form [formGroup]="addPlaceform">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Name" formControlName="yourname"
+                        [(ngModel)]="placeData.yourName"
+                        [ngClass]="{ 'is-invalid': submitted && placeFormControl.yourname.errors }">
+                    <div *ngIf="submitted && placeFormControl.yourname.errors" class="invalid-feedback">
+                        <div *ngIf="placeFormControl .yourname.errors.required" class="p-1">Name is required</div>
+                        <div *ngIf="placeFormControl.yourname.errors.pattern" class="p-1">Nmae should contain alphabet
+                            and numbers both</div>
+                    </div>
+
+                    <label>City</label>
+                    <input type="text" class="form-control" placeholder="Enter city Name" formControlName="city"
+                        [(ngModel)]="placeData.CityName"
+                        [ngClass]="{ 'is-invalid': submitted && placeFormControl.city.errors }">
+                    <div *ngIf="submitted && placeFormControl.city.errors" class="invalid-feedback">
+                        <div *ngIf="placeFormControl .city.errors.required" class="p-1">city is required</div>
+                    </div>
+
+                    <label>Pincode</label>
+                    <input type="number" class="form-control" placeholder="Enter pinCode" formControlName="pinCode"
+                        [(ngModel)]="placeData.pincode"
+                        [ngClass]="{ 'is-invalid': submitted && placeFormControl.pinCode.errors }">
+                    <div *ngIf="submitted && placeFormControl.pinCode.errors" class="invalid-feedback">
+                        <div *ngIf="placeFormControl.pinCode.errors.required" class="p-1">pinCode is required</div>
+                    </div>
+
+                    <label>Ratings</label>
+                    <input type="number" class="form-control" placeholder="Rate City Out Of 5" formControlName="ratings"
+                        [(ngModel)]="placeData.rate"
+                        [ngClass]="{ 'is-invalid': submitted && placeFormControl.ratings.errors }">
+                    <div *ngIf="submitted && placeFormControl.ratings.errors" class="invalid-feedback">
+                        <div *ngIf="placeFormControl .ratings.errors.required" class="p-1">Ratings is required</div>
+                    </div>
+
+                    <div class="mt-2">
+                        <div class="btn btn-success" type="submit" (click)="submit()">Register</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
